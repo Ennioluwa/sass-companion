@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Montserrat } from "next/font/google";
 import { ThemeProvider } from "./components/theme-provider";
 import { cn } from "./lib/utils";
+import { Toaster } from "./components/ui/toaster";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <body className={cn(" bg-secondary", font.className)}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
