@@ -86,13 +86,22 @@ export async function POST(
     // Call Replicate for inference
     const model = new Replicate({
       model:
-        "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
+        "replicate/llama-2-70b-chat:58d078176e02c219e11eb4da5a02a7830a283b14cf8f94537af893ccff5ee781",
       input: {
         max_length: 2048,
       },
       apiKey: process.env.REPLICATE_API_TOKEN,
       callbackManager: CallbackManager.fromHandlers(handlers),
     });
+    // const model = new Replicate({
+    //   model:
+    //     "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
+    //   input: {
+    //     max_length: 2048,
+    //   },
+    //   apiKey: process.env.REPLICATE_API_TOKEN,
+    //   callbackManager: CallbackManager.fromHandlers(handlers),
+    // });
 
     // Turn verbose on for debugging
     model.verbose = true;
