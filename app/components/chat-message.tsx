@@ -25,6 +25,8 @@ export const ChatMessage = ({
   const { toast } = useToast();
   const { theme } = useTheme();
 
+  let newContent = content?.split("--");
+
   const onCopy = () => {
     if (!content) {
       return;
@@ -49,7 +51,11 @@ export const ChatMessage = ({
         {isLoading ? (
           <BeatLoader color={theme === "light" ? "black" : "white"} size={5} />
         ) : (
-          content
+          <div className="flex flex-col gap-2">
+            {newContent?.map((content, i) => (
+              <p key={i}>{content}</p>
+            ))}
+          </div>
         )}
       </div>
       {role === "user" && <UserAvatar />}

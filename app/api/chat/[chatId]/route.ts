@@ -131,7 +131,7 @@ export async function POST(
     const chunks = cleaned.split("\n");
     console.log(chunks);
 
-    const response = chunks[0];
+    const response = chunks.join("-");
 
     await memoryManager.writeToHistory("" + response.trim(), companionKey);
     var Readable = require("stream").Readable;
